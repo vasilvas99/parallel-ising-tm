@@ -1,5 +1,4 @@
 use ndarray::prelude::*;
-use num::traits::Float;
 
 fn spin_state(num_spins: u32, chain_configuration: u32, spin_number: u32) -> i32 {
     if spin_number > num_spins {
@@ -47,7 +46,7 @@ fn unflatten_idx(idx: usize, n: usize) -> (usize, usize) {
     (idx / n, idx % n)
 }
 
-pub fn tm_n_parr<T: Float> (n: u32, jnn: f64, temp: f64) -> Array2<f64> {
+pub fn tm_n_parr(n: u32, jnn: f64, temp: f64) -> Array2<f64> {
     let n_states = 2_usize.pow(n);
 
     let mut tm_flat = Array::range(0., (n_states * n_states) as f64, 1.);
